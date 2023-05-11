@@ -1,0 +1,21 @@
+# fly.toml app configuration file generated for fragrant-darkness-6443 on 2023-05-11T19:17:38+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "fragrant-darkness-6443"
+primary_region = "cdg"
+
+[env]
+  DATABASE_URL = "file:/data/sqlite.db"
+  PORT = "8080"
+
+[[mounts]]
+  source = "data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
